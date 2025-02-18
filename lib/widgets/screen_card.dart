@@ -1,21 +1,39 @@
 import 'package:flutter/material.dart';
 
 class ScreenCard extends StatelessWidget {
-  final String title;
-  final IconData icon;
-  final MaterialColor color;
-  const ScreenCard(
-      {super.key,
-      required this.title,
-      required this.icon,
-      required this.color});
+  final String _title;
+  final IconData _icon;
+  final MaterialColor _color;
+  final String? _routeName;
+
+  const ScreenCard({
+    super.key,
+    required String title,
+    required IconData icon,
+    required MaterialColor color,
+    String? routeName,
+  }) : _color = color,
+       _title = title,
+       _icon = icon,
+       _routeName = routeName;
+
+  String get title => _title;
+  IconData get icon => _icon;
+  MaterialColor get color => _color;
+  String? get routeName => _routeName;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       clipBehavior: Clip.antiAlias,
+      elevation: 3,
       child: InkWell(
-        onTap: () {},
+        onTap:
+            _routeName != null
+                ? () {
+                  Navigator.pushNamed(context, _routeName);
+                }
+                : () {},
         child: SizedBox(
           height: 200,
           child: Column(
@@ -28,7 +46,7 @@ class ScreenCard extends StatelessWidget {
                         Container(
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              colors: [color, Colors.blueGrey],
+                              colors: [_color, Colors.blueGrey],
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                             ),
@@ -39,7 +57,7 @@ class ScreenCard extends StatelessWidget {
                           left: -constraints.maxHeight * 0.33,
                           child: IconButton(
                             onPressed: null,
-                            icon: Icon(icon),
+                            icon: Icon(_icon),
                             color: Colors.grey[300],
                             iconSize: constraints.maxHeight,
                             padding: EdgeInsets.zero,
@@ -55,11 +73,8 @@ class ScreenCard extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 padding: EdgeInsets.symmetric(horizontal: 8),
                 child: Text(
-                  title,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  _title,
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
             ],
