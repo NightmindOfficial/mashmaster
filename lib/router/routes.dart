@@ -1,31 +1,43 @@
-// ignore: constant_identifier_names
 enum MainRoute { home, contact, settings }
 
 enum HomeRoute { init, dosagecalc, generalcalc, brewcalc, unitcalc, mashcalc }
 
 class Routes<T extends Enum> {
-  static final Map<Type, Map<Enum, String>> _routes = {
+  static final Map<Type, Map<Enum, Map<String, String>>> _routes = {
     MainRoute: {
-      MainRoute.home: "/",
-      MainRoute.contact: "/contact",
-      MainRoute.settings: "/settings",
+      MainRoute.home: {"path": "/", "title": "MashMaster"},
+      MainRoute.contact: {"path": "/contact", "title": "MashMaster"},
+      MainRoute.settings: {"path": "/settings", "title": "App Settings"},
     },
 
     HomeRoute: {
-      HomeRoute.dosagecalc: "dosage",
-      HomeRoute.generalcalc: "general",
-      HomeRoute.brewcalc: "brew",
-      HomeRoute.unitcalc: "unit",
-      HomeRoute.mashcalc: "mash",
+      HomeRoute.dosagecalc: {
+        "path": "dosage",
+        "title": "Reinigungsmittel-Dosierer",
+      },
+      HomeRoute.generalcalc: {
+        "path": "general",
+        "title": "Allgemeine Berechnungen",
+      },
+      HomeRoute.brewcalc: {"path": "brew", "title": "Brau-Umrechnungen"},
+      HomeRoute.unitcalc: {"path": "unit", "title": "Einheits-Umrechnungen"},
+      HomeRoute.mashcalc: {"path": "mash", "title": "Maische-Berechnungen"},
     },
   };
 
   // Define parent-child relationships to construct absolute paths
   static final Map<Type, Enum> _parentRoutes = {HomeRoute: MainRoute.home};
 
+  // **NEW: A Flattened Map for Quick Lookup**
+  static final Map<String, String> _titleMap = {
+    for (var type in _routes.values)
+      for (var entry in type.entries)
+        route(entry.key): entry.value["title"] ?? "Unknown Page",
+  };
+
   static String route<T extends Enum>(T route) {
     //Get the base path
-    String? basePath = _routes[route.runtimeType]?[route];
+    String? basePath = _routes[route.runtimeType]?[route]?["path"];
 
     if (basePath == null) return "/404";
 
@@ -46,18 +58,26 @@ class Routes<T extends Enum> {
 
   //* Method to get absolute paths for router configuration
   static String absoluteRoute<T extends Enum>(T route) {
-    return _routes[route.runtimeType]?[route] ?? "/404";
+    return _routes[route.runtimeType]?[route]?["path"] ?? "/404";
+  }
+
+  //*Method to get the title of a route
+  static String getTitle(String path) {
+    return _titleMap[path] ?? "MashMaster";
   }
 }
 
 //* Universal extension to access paths without hardcoding static getters
 
 extension RoutePath on Enum {
-  ///Returns the full path of the route stored in the desired Route Enum.
+  /// Returns the full path of the route stored in the desired Route Enum.
   String get path => Routes.route(this);
 
-  ///Returns the ABSOLUTE path, meaning only the nested version of the desired Route Enum.
+  /// Returns the ABSOLUTE path, meaning only the nested version of the desired Route Enum.
   String get pathAbs => Routes.absoluteRoute(this);
+
+  /// Returns the title of the route for UI use.
+  String get title => Routes.getTitle(path);
 }
 
 

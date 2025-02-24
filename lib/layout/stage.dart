@@ -1,3 +1,5 @@
+import 'dart:developer' as dev;
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mashmaster/models/destination.dart';
@@ -11,14 +13,28 @@ class Stage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get current route path
+    final String currentPath =
+        GoRouter.of(context).routeInformationProvider.value.uri.toString();
+    dev.log(currentPath);
+
+    final String title = Routes.getTitle(currentPath);
+
+    //Determine if back buttion should be visible
+    final bool canGoBack = GoRouter.of(context).canPop();
+
     return Scaffold(
       ///* APPBAR
       appBar: AppBar(
-        title: const Text(
-          "MashMaster",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
+        title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        leading:
+            canGoBack
+                ? IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () => GoRouter.of(context).pop(),
+                )
+                : null,
         actions: [
           IconButton(
             onPressed: () => context.push(MainRoute.settings.pathAbs),
