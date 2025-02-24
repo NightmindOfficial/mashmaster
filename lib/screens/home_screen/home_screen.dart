@@ -14,6 +14,7 @@ class HomeScreen extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return ScreenCard(
             title: homeScreenCards[index].title,
+            subtitle: homeScreenCards[index].subtitle,
             icon: homeScreenCards[index].icon,
             color: homeScreenCards[index].color,
             location: homeScreenCards[index].location,

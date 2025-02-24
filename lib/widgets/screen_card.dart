@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 
 class ScreenCard extends StatelessWidget {
   final String _title;
+  final String? _subtitle;
   final IconData _icon;
   final MaterialColor _color;
   final String? _location;
@@ -13,6 +14,7 @@ class ScreenCard extends StatelessWidget {
     required String title,
     required IconData icon,
     required MaterialColor color,
+    String? subtitle,
     String? location,
     Function? onTap,
   }) : assert(
@@ -21,11 +23,13 @@ class ScreenCard extends StatelessWidget {
        ),
        _color = color,
        _title = title,
+       _subtitle = subtitle,
        _icon = icon,
        _location = location,
        _onTap = onTap;
 
   String get title => _title;
+  String? get subtitle => _subtitle;
   IconData get icon => _icon;
   MaterialColor get color => _color;
   String? get location => _location;
@@ -40,7 +44,6 @@ class ScreenCard extends StatelessWidget {
         onTap:
             _location != null
                 ? () {
-                  print("Pushing to $_location");
                   context.push(_location);
                 }
                 : () => _onTap,
@@ -79,12 +82,23 @@ class ScreenCard extends StatelessWidget {
                 ),
               ),
               Container(
-                height: 50,
+                height: 70,
                 alignment: Alignment.centerLeft,
                 padding: EdgeInsets.symmetric(horizontal: 8),
-                child: Text(
-                  _title,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                child: ListTile(
+                  minTileHeight: 0,
+                  title: Text(_title),
+                  subtitle: _subtitle != null ? Text(_subtitle) : null,
+                  contentPadding: EdgeInsets.only(left: 4),
+                  titleTextStyle: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
+                  subtitleTextStyle: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
                 ),
               ),
             ],
