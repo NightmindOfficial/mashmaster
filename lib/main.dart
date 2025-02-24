@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_info/flutter_app_info.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mashmaster/router/app_router.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await dotenv.load();
   runApp(
     AppInfo(data: await AppInfoData.get(), child: const ApplicationWidget()),
   );

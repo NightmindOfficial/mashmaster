@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_info/flutter_app_info.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mashmaster/helpers/social_media_icon.dart';
 import 'package:mashmaster/helpers/url_handler.dart';
 
@@ -86,7 +87,7 @@ class ContactScreen extends StatelessWidget {
                                     IconButton.outlined(
                                       onPressed:
                                           () => launchURL(
-                                            'mailto:mail@otismohr.de?subject=Mashmaster User Feedback',
+                                            'mailto:${dotenv.env['EMAIL']}?subject=Mashmaster User Feedback',
                                           ),
                                       icon: Icon(Icons.email_rounded),
                                       style: IconButton.styleFrom(
