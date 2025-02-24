@@ -1,4 +1,4 @@
-package com.example.mashmaster
+package de.otismohr.mashmaster
 
 import io.flutter.embedding.android.FlutterActivity
 

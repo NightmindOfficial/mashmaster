@@ -3,11 +3,13 @@ import 'package:flutter_app_info/flutter_app_info.dart';
 import 'package:mashmaster/router/app_router.dart';
 
 void main() async {
-  runApp(AppInfo(data: await AppInfoData.get(), child: const RootWidget()));
+  runApp(
+    AppInfo(data: await AppInfoData.get(), child: const ApplicationWidget()),
+  );
 }
 
-class RootWidget extends StatelessWidget {
-  const RootWidget({super.key});
+class ApplicationWidget extends StatelessWidget {
+  const ApplicationWidget({super.key});
 
   // This widget is the root of your application.
   @override
