@@ -1,26 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ScreenCard extends StatelessWidget {
   final String _title;
   final IconData _icon;
   final MaterialColor _color;
-  final String? _routeName;
+  final String? _location;
+  final Function? _onTap;
 
   const ScreenCard({
     super.key,
     required String title,
     required IconData icon,
     required MaterialColor color,
-    String? routeName,
-  }) : _color = color,
+    String? location,
+    Function? onTap,
+  }) : assert(
+         (location == null) != (onTap == null),
+         'Exactly one of location or onTap must be defined',
+       ),
+       _color = color,
        _title = title,
        _icon = icon,
-       _routeName = routeName;
+       _location = location,
+       _onTap = onTap;
 
   String get title => _title;
   IconData get icon => _icon;
   MaterialColor get color => _color;
-  String? get routeName => _routeName;
+  String? get location => _location;
+  Function? get onTap => _onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +38,12 @@ class ScreenCard extends StatelessWidget {
       elevation: 3,
       child: InkWell(
         onTap:
-            _routeName != null
+            _location != null
                 ? () {
-                  Navigator.pushNamed(context, _routeName);
+                  print("Pushing to $_location");
+                  context.push(_location);
                 }
-                : () {},
+                : () => _onTap,
         child: SizedBox(
           height: 200,
           child: Column(

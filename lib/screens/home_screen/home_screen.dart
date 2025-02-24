@@ -16,7 +16,8 @@ class HomeScreen extends StatelessWidget {
             title: homeScreenCards[index].title,
             icon: homeScreenCards[index].icon,
             color: homeScreenCards[index].color,
-            routeName: homeScreenCards[index].routeName,
+            location: homeScreenCards[index].location,
+            onTap: homeScreenCards[index].onTap,
           );
         },
       ),
