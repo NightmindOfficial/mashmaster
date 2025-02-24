@@ -1,11 +1,15 @@
 // ignore: constant_identifier_names
-enum MainRoute { home, contact }
+enum MainRoute { home, contact, settings }
 
 enum HomeRoute { init, dosagecalc, generalcalc, brewcalc, unitcalc, mashcalc }
 
 class Routes<T extends Enum> {
   static final Map<Type, Map<Enum, String>> _routes = {
-    MainRoute: {MainRoute.home: "/", MainRoute.contact: "/contact"},
+    MainRoute: {
+      MainRoute.home: "/",
+      MainRoute.contact: "/contact",
+      MainRoute.settings: "/settings",
+    },
 
     HomeRoute: {
       HomeRoute.dosagecalc: "dosage",

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mashmaster/models/destination.dart';
+import 'package:mashmaster/router/routes.dart';
 
 class Stage extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
@@ -20,7 +21,7 @@ class Stage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => context.push(MainRoute.settings.pathAbs),
             icon: const Icon(Icons.settings_rounded),
           ),
         ],

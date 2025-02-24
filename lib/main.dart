@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_info/flutter_app_info.dart';
 import 'package:mashmaster/router/app_router.dart';
 
-void main() {
-  runApp(const RootWidget());
+void main() async {
+  runApp(AppInfo(data: await AppInfoData.get(), child: const RootWidget()));
 }
 
 class RootWidget extends StatelessWidget {
