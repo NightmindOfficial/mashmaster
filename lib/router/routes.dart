@@ -63,7 +63,7 @@ class Routes<T extends Enum> {
 
   //*Method to get the title of a route
   static String getTitle(String path) {
-    return _titleMap[path] ?? "MashMaster";
+    return _titleMap[path] ?? "ERROR";
   }
 }
 

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mashmaster/router/routes.dart';
 import 'package:mashmaster/screens/home_screen/pages/home_screen_brew_calc.dart';
@@ -9,22 +10,24 @@ import 'package:mashmaster/screens/home_screen/pages/home_screen_unit_calc.dart'
 final Map<HomeRoute, GoRoute> homeRoutes = {
   HomeRoute.dosagecalc: GoRoute(
     path: HomeRoute.dosagecalc.pathAbs,
-    builder: (context, state) => HomeScreenDosageCalc(),
+    pageBuilder:
+        (context, state) => CupertinoPage(child: HomeScreenDosageCalc()),
   ),
   HomeRoute.generalcalc: GoRoute(
     path: HomeRoute.generalcalc.pathAbs,
-    builder: (context, state) => HomeScreenGeneralCalc(),
+    pageBuilder:
+        (context, state) => CupertinoPage(child: HomeScreenGeneralCalc()),
   ),
   HomeRoute.brewcalc: GoRoute(
     path: HomeRoute.brewcalc.pathAbs,
-    builder: (context, state) => HomeScreenBrewCalc(),
+    pageBuilder: (context, state) => CupertinoPage(child: HomeScreenBrewCalc()),
   ),
   HomeRoute.unitcalc: GoRoute(
     path: HomeRoute.unitcalc.pathAbs,
-    builder: (context, state) => HomeScreenUnitCalc(),
+    pageBuilder: (context, state) => CupertinoPage(child: HomeScreenUnitCalc()),
   ),
   HomeRoute.mashcalc: GoRoute(
     path: HomeRoute.mashcalc.pathAbs,
-    builder: (context, state) => HomeScreenMashCalc(),
+    pageBuilder: (context, state) => CupertinoPage(child: HomeScreenMashCalc()),
   ),
 };

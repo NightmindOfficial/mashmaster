@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mashmaster/layout/stage_app_bar.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -6,19 +7,21 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      ///* APPBAR
-      appBar: AppBar(
-        title: const Text(
-          "MashMaster Settings",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      ),
+      //* APPBAR
+      appBar: StageAppBar(),
 
       ///* BODY
-      body: const SafeArea(child: Center(child: Text("Settings go here."))),
-
-      backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+      body: const SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 64.0),
+          child: Center(
+            child: Text(
+              "There are currently no settings for this app, since it is still in Beta.\n\nPlease come back later!",
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
