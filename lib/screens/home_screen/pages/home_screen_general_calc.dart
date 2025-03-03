@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mashmaster/helpers/home_screen_cards.dart';
+import 'package:mashmaster/layout/stage_app_bar.dart';
 
 class HomeScreenGeneralCalc extends StatelessWidget {
   const HomeScreenGeneralCalc({super.key});
@@ -7,7 +7,12 @@ class HomeScreenGeneralCalc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(height: 150, width: 300, child: homeScreenCards[1]),
+      appBar: StageAppBar(),
+      body: Center(
+        child: Text(
+          "This feature has not been finalized yet. Please come back later!",
+        ),
+      ),
     );
   }
 }
