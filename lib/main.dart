@@ -4,10 +4,11 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mashmaster/router/app_router.dart';
 import 'package:mashmaster/theme/theme.dart';
 import 'package:mashmaster/theme/util.dart';
+import 'package:wiredash/wiredash.dart';
 
 ///*** FEATURE ROADMAP ***\\\
 ///
-///[ ] Introduce Bug Tracker (-> Linum as Best Practice)
+///[x] Introduce Bug Tracker (-> Linum as Best Practice)
 ///   - medium prio
 ///   - pretty easy snacc
 ///[x] Finalize App Routing System
@@ -25,7 +26,9 @@ import 'package:mashmaster/theme/util.dart';
 ///   - medium prio
 ///[x] Splash Screen
 ///   - medium prio
-///
+///[ ] Logo Icon
+///   - medium prio
+///   - easy snacc
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,12 +51,23 @@ class ApplicationWidget extends StatelessWidget {
 
     MaterialTheme theme = MaterialTheme(textTheme);
 
-    return MaterialApp.router(
-      routerConfig: router,
-      // debugShowCheckedModeBanner: false,
-      title: 'MashMaster',
-      debugShowCheckedModeBanner: false,
-      theme: brightness == Brightness.light ? theme.light() : theme.dark(),
+    return Wiredash(
+      projectId: dotenv.env['WIREDASH_PROJECT_ID'] ?? 'error',
+      secret: dotenv.env['WIREDASH_SECRET'] ?? 'error',
+      feedbackOptions: const WiredashFeedbackOptions(
+        labels: [
+          Label(id: 'label-kpy2h5jgw8', title: 'Bug'),
+          Label(id: 'label-xa70lpxi42', title: 'Improvement'),
+          Label(id: 'label-bqpi3ygbo5', title: 'Praise'),
+        ],
+      ),
+      child: MaterialApp.router(
+        routerConfig: router,
+        // debugShowCheckedModeBanner: false,
+        title: 'MashMaster',
+        debugShowCheckedModeBanner: false,
+        theme: brightness == Brightness.light ? theme.light() : theme.dark(),
+      ),
     );
   }
 }
