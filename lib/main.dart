@@ -26,7 +26,9 @@ import 'package:wiredash/wiredash.dart';
 ///   - medium prio
 ///[x] Splash Screen
 ///   - medium prio
-///
+///[ ] Logo Icon
+///   - medium prio
+///   - easy snacc
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -52,6 +54,13 @@ class ApplicationWidget extends StatelessWidget {
     return Wiredash(
       projectId: dotenv.env['WIREDASH_PROJECT_ID'] ?? 'error',
       secret: dotenv.env['WIREDASH_SECRET'] ?? 'error',
+      feedbackOptions: const WiredashFeedbackOptions(
+        labels: [
+          Label(id: 'label-kpy2h5jgw8', title: 'Bug'),
+          Label(id: 'label-xa70lpxi42', title: 'Improvement'),
+          Label(id: 'label-bqpi3ygbo5', title: 'Praise'),
+        ],
+      ),
       child: MaterialApp.router(
         routerConfig: router,
         // debugShowCheckedModeBanner: false,

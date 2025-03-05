@@ -27,7 +27,7 @@ class ContactScreen extends StatelessWidget {
                 children: [
                   Text(
                     "For Feedback, Suggestions and other Comments",
-                    style: TextStyle(fontSize: 16),
+                    style: TextStyle(fontSize: 16, height: 3),
                     textAlign: TextAlign.center,
                   ),
                   Card(
@@ -116,6 +116,22 @@ class ContactScreen extends StatelessWidget {
                           ),
                         ],
                       ),
+                    ),
+                  ),
+                  Divider(),
+                  Text(
+                    "Want to report a bug?",
+                    style: TextStyle(fontSize: 16, height: 3),
+                  ),
+                  ElevatedButton.icon(
+                    icon: Icon(Icons.bug_report_rounded),
+                    onPressed:
+                        () => Wiredash.of(
+                          context,
+                        ).show(inheritMaterialTheme: true),
+                    label: Text(
+                      "Submit Bug Report",
+                      style: TextStyle(fontSize: 18),
                     ),
                   ),
                 ],

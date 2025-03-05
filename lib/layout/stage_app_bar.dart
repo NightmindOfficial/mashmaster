@@ -15,7 +15,13 @@ class StageAppBar extends StatelessWidget implements PreferredSizeWidget {
         getTitleForCurrentRoute(context),
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
-      actions: _actions,
+      actions: [
+        ...?_actions,
+        // IconButton( //FUTURE think about adding it to the UI
+        // onPressed: () => Wiredash.of(context).show(),
+        // icon: Icon(Icons.bug_report_rounded),
+        // ),
+      ],
     );
   }
 
