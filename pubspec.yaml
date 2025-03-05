@@ -37,6 +37,7 @@ dependencies:
   google_fonts: ^6.2.1
   url_launcher: ^6.3.1
   flutter_native_splash: ^2.4.5
+  wiredash: ^2.4.0
 
 dev_dependencies:
 

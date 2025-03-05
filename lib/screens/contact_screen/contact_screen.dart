@@ -5,6 +5,7 @@ import 'package:mashmaster/helpers/social_media_icon.dart';
 import 'package:mashmaster/helpers/url_handler.dart';
 import 'package:mashmaster/layout/stage_app_bar.dart';
 import 'package:mashmaster/screens/settings_screen/widgets/settings_icon_button.dart';
+import 'package:wiredash/wiredash.dart';
 
 class ContactScreen extends StatelessWidget {
   const ContactScreen({super.key});
@@ -77,10 +78,14 @@ class ContactScreen extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       IconButton.outlined(
-                                        onPressed:
-                                            () => launchURL(
-                                              'https://github.com/NightmindOfficial',
-                                            ),
+                                        onPressed: () async {
+                                          await Wiredash.trackEvent(
+                                            'GitHub Profile Visit',
+                                          );
+                                          launchURL(
+                                            'https://github.com/NightmindOfficial',
+                                          );
+                                        },
                                         icon: Icon(
                                           SocialMediaIcon.github_circled,
                                         ),
@@ -90,10 +95,14 @@ class ContactScreen extends StatelessWidget {
                                       ),
                                       SizedBox(width: 8),
                                       IconButton.outlined(
-                                        onPressed:
-                                            () => launchURL(
-                                              'mailto:${dotenv.env['EMAIL']}?subject=Mashmaster User Feedback',
-                                            ),
+                                        onPressed: () async {
+                                          await Wiredash.trackEvent(
+                                            'Sent E-Mail',
+                                          );
+                                          launchURL(
+                                            'mailto:${dotenv.env['EMAIL']}?subject=Mashmaster User Feedback',
+                                          );
+                                        },
                                         icon: Icon(Icons.email_rounded),
                                         style: IconButton.styleFrom(
                                           backgroundColor: Colors.blue[50],

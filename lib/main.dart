@@ -4,10 +4,11 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mashmaster/router/app_router.dart';
 import 'package:mashmaster/theme/theme.dart';
 import 'package:mashmaster/theme/util.dart';
+import 'package:wiredash/wiredash.dart';
 
 ///*** FEATURE ROADMAP ***\\\
 ///
-///[ ] Introduce Bug Tracker (-> Linum as Best Practice)
+///[x] Introduce Bug Tracker (-> Linum as Best Practice)
 ///   - medium prio
 ///   - pretty easy snacc
 ///[x] Finalize App Routing System
@@ -48,12 +49,16 @@ class ApplicationWidget extends StatelessWidget {
 
     MaterialTheme theme = MaterialTheme(textTheme);
 
-    return MaterialApp.router(
-      routerConfig: router,
-      // debugShowCheckedModeBanner: false,
-      title: 'MashMaster',
-      debugShowCheckedModeBanner: false,
-      theme: brightness == Brightness.light ? theme.light() : theme.dark(),
+    return Wiredash(
+      projectId: dotenv.env['WIREDASH_PROJECT_ID'] ?? 'error',
+      secret: dotenv.env['WIREDASH_SECRET'] ?? 'error',
+      child: MaterialApp.router(
+        routerConfig: router,
+        // debugShowCheckedModeBanner: false,
+        title: 'MashMaster',
+        debugShowCheckedModeBanner: false,
+        theme: brightness == Brightness.light ? theme.light() : theme.dark(),
+      ),
     );
   }
 }
