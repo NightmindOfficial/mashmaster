@@ -23,7 +23,7 @@ import 'package:mashmaster/theme/util.dart';
 ///   - needs to be done before publication
 ///[ ] Look into consistent font hierarchy
 ///   - medium prio
-///[ ] Splash Screen
+///[x] Splash Screen
 ///   - medium prio
 ///
 
