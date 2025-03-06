@@ -22,11 +22,11 @@ import 'package:wiredash/wiredash.dart';
 ///[ ] Privacy Policy and Stuff
 ///   - medium prio
 ///   - needs to be done before publication
-///[ ] Look into consistent font hierarchy
+///[x] Look into consistent font hierarchy
 ///   - medium prio
 ///[x] Splash Screen
 ///   - medium prio
-///[ ] Logo Icon
+///[x] Logo Icon
 ///   - medium prio
 ///   - easy snacc
 
