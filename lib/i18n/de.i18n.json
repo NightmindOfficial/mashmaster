@@ -1,0 +1,54 @@
+{
+  "app_title": "MashMaster",
+  "language": {
+    "label": "Sprache",
+    "en": "English",
+    "de": "Deutsch"
+  },
+  "navbar": {
+    "home": "Home",
+    "contact": "Kontakt"
+  },
+  "generic": {
+    "placeholder-label": "Dieses Feature ist noch nicht ganz fertig.\nSchau gerne später noch einmal vorbei!",
+    "cta-label": "Ich möchte dieses Feature schneller haben!"
+  },
+  "home_screen_cards(interface=HomeScreenCard)": {
+    "dosage_calc": {
+      "title": "Reinigungsmittel-Dosierer",
+      "subtitle": "z.B. PBW, StarSan, SaniClean, ChemiPro Oxi"
+    },
+    "general_calc": {
+      "title": "Allgemeine Berechnungen",
+      "subtitle": "Alkoholgehalt, Kalorien, Refraktometrie, Boil-Off, Hydrometer-Korrektur, Karbonisierung"
+    },
+    "brew_calc": {
+      "title": "Brau-Umrechnungen",
+      "subtitle": "Extraktgehalt, Bierfarbe"
+    },
+    "unit_calc": {
+      "title": "Einheits-Umrechnungen",
+      "subtitle": "Volumen, Gewicht, Temperatur"
+    },
+    "mash_calc": {
+      "title": "Maische-Berechnungen",
+      "subtitle": "Einmaisch- und Rasttemperatur, Maischekorbkalibrierung"
+    }
+  },
+  "contact_screen": {
+    "label_one": "Für Feedback, Vorschläge und Anregungen",
+    "dev_card": {
+      "name": "@NightmindOfficial",
+      "title": "App-Entwickler"
+    },
+    "bug_report": {
+      "label": "Du möchtest einen Bug melden?",
+      "button_label": "Bug Report abschicken"
+    },
+    "version_label": "Mit ♡ in Vallendar programmiert."
+  },
+  "settings_screen": {
+    "title": "App-Einstellungen",
+    "placeholder-label": "Aktuell gibt es nur wenige Einstellungen für die App, da sie noch in der Beta ist.\n\nSchau gerne später wieder vorbei!"
+  }
+}

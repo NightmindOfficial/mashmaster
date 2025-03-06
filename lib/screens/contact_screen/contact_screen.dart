@@ -3,6 +3,7 @@ import 'package:flutter_app_info/flutter_app_info.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mashmaster/helpers/social_media_icon.dart';
 import 'package:mashmaster/helpers/url_handler.dart';
+import 'package:mashmaster/i18n/generated/translations.g.dart';
 import 'package:mashmaster/layout/stage_app_bar.dart';
 import 'package:mashmaster/screens/settings_screen/widgets/settings_icon_button.dart';
 import 'package:wiredash/wiredash.dart';
@@ -143,7 +144,7 @@ class ContactScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: Text(
-                    "Mashmaster v${package.versionWithoutBuild} Build ${package.buildNumber}. Made with ♡ in Vallendar.",
+                    "Mashmaster v${package.versionWithoutBuild} Build ${package.buildNumber}. ${t.contact_screen.version_label}",
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.secondary,
                     ),

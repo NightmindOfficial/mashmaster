@@ -1,0 +1,54 @@
+{
+    "app_title": "MashMaster",
+    "language": {
+        "label": "Language",
+        "en": "English",
+        "de": "German"
+    },
+    "navbar": {
+        "home": "Home",
+        "contact": "Contact"
+    },
+    "generic": {
+        "placeholder-label": "This feature has not been finalized yet.\nPlease come back later!",
+        "cta-label": "I want this feature sooner!"
+    },
+    "home_screen_cards(interface=HomeScreenCard)": {
+        "dosage_calc": {
+            "title": "Cleaning Agent Dosage",
+            "subtitle": "e.g., PBW, StarSan, SaniClean, ChemiPro Oxi"
+        },
+        "general_calc": {
+            "title": "General Calculations",
+            "subtitle": "ABV (%vol), Calories, Refractometer, Boil-Off Rate, Hydrometer Correction, Carbonation"
+        },
+        "brew_calc": {
+            "title": "Brewing Conversions",
+            "subtitle": "Extract Levels, Beer Color"
+        },
+        "unit_calc": {
+            "title": "Unit Conversions",
+            "subtitle": "Volume, Weight, Temperature"
+        },
+        "mash_calc": {
+            "title": "Mash Calculations",
+            "subtitle": "Mash-In & Mash Step Temperatures, Mash Tun Calibration"
+        }
+    },
+    "contact_screen": {
+        "label_one": "For Feedback, Suggestions and other Comments",
+        "dev_card": {
+            "name": "@NightmindOfficial",
+            "title": "App Developer"
+        },
+        "bug_report": {
+            "label": "Want to report a bug?",
+            "button_label": "Submit Bug Report"
+        },
+        "version_label": "Made with ♡ in Vallendar."
+    },
+    "settings_screen": {
+        "title": "App Settings",
+        "placeholder-label": "There are currently very few settings for this app, since it is still in Beta.\n\nPlease come back later!"
+    }
+}

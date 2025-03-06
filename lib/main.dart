@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_info/flutter_app_info.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:mashmaster/i18n/generated/translations.g.dart';
 import 'package:mashmaster/router/app_router.dart';
 import 'package:mashmaster/theme/theme.dart';
 import 'package:mashmaster/theme/util.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wiredash/wiredash.dart';
 
 ///*** FEATURE ROADMAP ***\\\
@@ -14,7 +17,7 @@ import 'package:wiredash/wiredash.dart';
 ///[x] Finalize App Routing System
 ///   - high prio
 ///   - utterly complicated for such a simple app
-///[ ] Localization
+///[x] Localization
 ///   - medium prio
 ///   - don't know what's best practice nowadays
 ///[ ] Implement actual calculations
@@ -33,14 +36,33 @@ import 'package:wiredash/wiredash.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load();
+  final pref = await SharedPreferences.getInstance();
+
+  String? storedLocale = maybeLoadLocaleFromStorage(pref);
+  (storedLocale != null)
+      ? LocaleSettings.setLocaleRaw(storedLocale)
+      : LocaleSettings.useDeviceLocale();
+
   runApp(
-    AppInfo(data: await AppInfoData.get(), child: const ApplicationWidget()),
+    AppInfo(
+      data: await AppInfoData.get(),
+      child: TranslationProvider(child: const ApplicationWidget()),
+    ),
   );
 }
 
-class ApplicationWidget extends StatelessWidget {
+String? maybeLoadLocaleFromStorage(SharedPreferences pref) {
+  return pref.getString('appLang');
+}
+
+class ApplicationWidget extends StatefulWidget {
   const ApplicationWidget({super.key});
 
+  @override
+  State<ApplicationWidget> createState() => _ApplicationWidgetState();
+}
+
+class _ApplicationWidgetState extends State<ApplicationWidget> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -64,9 +86,12 @@ class ApplicationWidget extends StatelessWidget {
       child: MaterialApp.router(
         routerConfig: router,
         // debugShowCheckedModeBanner: false,
-        title: 'MashMaster',
+        onGenerateTitle: (context) => Translations.of(context).app_title,
         debugShowCheckedModeBanner: false,
         theme: brightness == Brightness.light ? theme.light() : theme.dark(),
+        locale: TranslationProvider.of(context).flutterLocale,
+        supportedLocales: AppLocaleUtils.supportedLocales,
+        localizationsDelegates: GlobalMaterialLocalizations.delegates,
       ),
     );
   }

@@ -1,3 +1,5 @@
+import 'package:mashmaster/i18n/generated/translations.g.dart';
+
 enum MainRoute { home, contact, settings }
 
 enum HomeRoute { init, dosagecalc, generalcalc, brewcalc, unitcalc, mashcalc }
@@ -5,23 +7,35 @@ enum HomeRoute { init, dosagecalc, generalcalc, brewcalc, unitcalc, mashcalc }
 class Routes<T extends Enum> {
   static final Map<Type, Map<Enum, Map<String, String>>> _routes = {
     MainRoute: {
-      MainRoute.home: {"path": "/", "title": "MashMaster"},
-      MainRoute.contact: {"path": "/contact", "title": "MashMaster"},
-      MainRoute.settings: {"path": "/settings", "title": "App Settings"},
+      MainRoute.home: {"path": "/", "title": t.app_title},
+      MainRoute.contact: {"path": "/contact", "title": t.app_title},
+      MainRoute.settings: {
+        "path": "/settings",
+        "title": t.settings_screen.title,
+      },
     },
 
     HomeRoute: {
       HomeRoute.dosagecalc: {
         "path": "dosage",
-        "title": "Reinigungsmittel-Dosierer",
+        "title": t.home_screen_cards.dosage_calc.title,
       },
       HomeRoute.generalcalc: {
         "path": "general",
-        "title": "Allgemeine Berechnungen",
+        "title": t.home_screen_cards.general_calc.title,
       },
-      HomeRoute.brewcalc: {"path": "brew", "title": "Brau-Umrechnungen"},
-      HomeRoute.unitcalc: {"path": "unit", "title": "Einheits-Umrechnungen"},
-      HomeRoute.mashcalc: {"path": "mash", "title": "Maische-Berechnungen"},
+      HomeRoute.brewcalc: {
+        "path": "brew",
+        "title": t.home_screen_cards.brew_calc.title,
+      },
+      HomeRoute.unitcalc: {
+        "path": "unit",
+        "title": t.home_screen_cards.unit_calc.title,
+      },
+      HomeRoute.mashcalc: {
+        "path": "mash",
+        "title": t.home_screen_cards.mash_calc.title,
+      },
     },
   };
 

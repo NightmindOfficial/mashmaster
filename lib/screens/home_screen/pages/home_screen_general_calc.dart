@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mashmaster/i18n/generated/translations.g.dart';
 import 'package:mashmaster/layout/stage_app_bar.dart';
 import 'package:wiredash/wiredash.dart';
 
@@ -9,13 +10,12 @@ class HomeScreenGeneralCalc extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: StageAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "This feature has not been finalized yet. Please come back later!",
+              t.generic.placeholder_label,
               style: TextStyle(height: 3, fontSize: 20),
               textAlign: TextAlign.center,
             ),
@@ -37,10 +37,7 @@ class HomeScreenGeneralCalc extends StatelessWidget {
                       ],
                     ),
                   ),
-              child: Text(
-                "I want this feature sooner!",
-                style: TextStyle(fontSize: 16),
-              ),
+              child: Text(t.generic.cta_label, style: TextStyle(fontSize: 16)),
             ),
           ],
         ),
