@@ -9,6 +9,15 @@
     "home": "Home",
     "contact": "Kontakt"
   },
+  "routes": {
+    "contact": "Contact",
+    "settings": "App-Einstellungen",
+    "dosage": "@:home_screen_cards.dosage_calc.title",
+    "general": "@:home_screen_cards.general_calc.title",
+    "brew": "@:home_screen_cards.brew_calc.title",
+    "unit": "@:home_screen_cards.unit_calc.title",
+    "mash": "@:home_screen_cards.mash_calc.title"
+  },
   "generic": {
     "placeholder-label": "Dieses Feature ist noch nicht ganz fertig.\nSchau gerne später noch einmal vorbei!",
     "cta-label": "Ich möchte dieses Feature schneller haben!"
@@ -48,7 +57,6 @@
     "version_label": "Mit ♡ in Vallendar programmiert."
   },
   "settings_screen": {
-    "title": "App-Einstellungen",
     "placeholder-label": "Aktuell gibt es nur wenige Einstellungen für die App, da sie noch in der Beta ist.\n\nSchau gerne später wieder vorbei!"
   }
 }

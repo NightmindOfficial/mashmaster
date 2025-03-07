@@ -42,6 +42,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
   String get app_title => 'MashMaster';
   late final TranslationsLanguageEn language = TranslationsLanguageEn.internal(_root);
   late final TranslationsNavbarEn navbar = TranslationsNavbarEn.internal(_root);
+  late final TranslationsRoutesEn routes = TranslationsRoutesEn.internal(_root);
   late final TranslationsGenericEn generic = TranslationsGenericEn.internal(_root);
   late final TranslationsHomeScreenCardsEn home_screen_cards = TranslationsHomeScreenCardsEn.internal(_root);
   late final TranslationsContactScreenEn contact_screen = TranslationsContactScreenEn.internal(_root);
@@ -69,6 +70,22 @@ class TranslationsNavbarEn {
   // Translations
   String get home => 'Home';
   String get contact => 'Contact';
+}
+
+// Path: routes
+class TranslationsRoutesEn {
+  TranslationsRoutesEn.internal(this._root);
+
+  final Translations _root; // ignore: unused_field
+
+  // Translations
+  String get contact => 'Contact';
+  String get settings => 'App Settings';
+  String get dosage => _root.home_screen_cards.dosage_calc.title;
+  String get general => _root.home_screen_cards.general_calc.title;
+  String get brew => _root.home_screen_cards.brew_calc.title;
+  String get unit => _root.home_screen_cards.unit_calc.title;
+  String get mash => _root.home_screen_cards.mash_calc.title;
 }
 
 // Path: generic
@@ -116,7 +133,6 @@ class TranslationsSettingsScreenEn {
   final Translations _root; // ignore: unused_field
 
   // Translations
-  String get title => 'App Settings';
   String get placeholder_label => 'There are currently very few settings for this app, since it is still in Beta.\n\nPlease come back later!';
 }
 
@@ -214,6 +230,20 @@ extension on Translations {
         return 'Home';
       case 'navbar.contact':
         return 'Contact';
+      case 'routes.contact':
+        return 'Contact';
+      case 'routes.settings':
+        return 'App Settings';
+      case 'routes.dosage':
+        return _root.home_screen_cards.dosage_calc.title;
+      case 'routes.general':
+        return _root.home_screen_cards.general_calc.title;
+      case 'routes.brew':
+        return _root.home_screen_cards.brew_calc.title;
+      case 'routes.unit':
+        return _root.home_screen_cards.unit_calc.title;
+      case 'routes.mash':
+        return _root.home_screen_cards.mash_calc.title;
       case 'generic.placeholder_label':
         return 'This feature has not been finalized yet.\nPlease come back later!';
       case 'generic.cta_label':
@@ -250,8 +280,6 @@ extension on Translations {
         return 'Submit Bug Report';
       case 'contact_screen.version_label':
         return 'Made with ♡ in Vallendar.';
-      case 'settings_screen.title':
-        return 'App Settings';
       case 'settings_screen.placeholder_label':
         return 'There are currently very few settings for this app, since it is still in Beta.\n\nPlease come back later!';
       default:

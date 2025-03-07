@@ -9,6 +9,15 @@
         "home": "Home",
         "contact": "Contact"
     },
+    "routes": {
+        "contact": "Contact",
+        "settings": "App Settings",
+        "dosage": "@:home_screen_cards.dosage_calc.title",
+        "general": "@:home_screen_cards.general_calc.title",
+        "brew": "@:home_screen_cards.brew_calc.title",
+        "unit": "@:home_screen_cards.unit_calc.title",
+        "mash": "@:home_screen_cards.mash_calc.title"
+    },
     "generic": {
         "placeholder-label": "This feature has not been finalized yet.\nPlease come back later!",
         "cta-label": "I want this feature sooner!"
@@ -48,7 +57,6 @@
         "version_label": "Made with ♡ in Vallendar."
     },
     "settings_screen": {
-        "title": "App Settings",
         "placeholder-label": "There are currently very few settings for this app, since it is still in Beta.\n\nPlease come back later!"
     }
 }

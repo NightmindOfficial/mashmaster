@@ -44,6 +44,8 @@ class TranslationsDe extends Translations {
   @override
   late final _TranslationsNavbarDe navbar = _TranslationsNavbarDe._(_root);
   @override
+  late final _TranslationsRoutesDe routes = _TranslationsRoutesDe._(_root);
+  @override
   late final _TranslationsGenericDe generic = _TranslationsGenericDe._(_root);
   @override
   late final _TranslationsHomeScreenCardsDe home_screen_cards = _TranslationsHomeScreenCardsDe._(_root);
@@ -79,6 +81,29 @@ class _TranslationsNavbarDe extends TranslationsNavbarEn {
   String get home => 'Home';
   @override
   String get contact => 'Kontakt';
+}
+
+// Path: routes
+class _TranslationsRoutesDe extends TranslationsRoutesEn {
+  _TranslationsRoutesDe._(TranslationsDe root) : this._root = root, super.internal(root);
+
+  final TranslationsDe _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get contact => 'Contact';
+  @override
+  String get settings => 'App-Einstellungen';
+  @override
+  String get dosage => _root.home_screen_cards.dosage_calc.title;
+  @override
+  String get general => _root.home_screen_cards.general_calc.title;
+  @override
+  String get brew => _root.home_screen_cards.brew_calc.title;
+  @override
+  String get unit => _root.home_screen_cards.unit_calc.title;
+  @override
+  String get mash => _root.home_screen_cards.mash_calc.title;
 }
 
 // Path: generic
@@ -137,8 +162,6 @@ class _TranslationsSettingsScreenDe extends TranslationsSettingsScreenEn {
   final TranslationsDe _root; // ignore: unused_field
 
   // Translations
-  @override
-  String get title => 'App-Einstellungen';
   @override
   String get placeholder_label =>
       'Aktuell gibt es nur wenige Einstellungen für die App, da sie noch in der Beta ist.\n\nSchau gerne später wieder vorbei!';
@@ -252,6 +275,20 @@ extension on TranslationsDe {
         return 'Home';
       case 'navbar.contact':
         return 'Kontakt';
+      case 'routes.contact':
+        return 'Contact';
+      case 'routes.settings':
+        return 'App-Einstellungen';
+      case 'routes.dosage':
+        return _root.home_screen_cards.dosage_calc.title;
+      case 'routes.general':
+        return _root.home_screen_cards.general_calc.title;
+      case 'routes.brew':
+        return _root.home_screen_cards.brew_calc.title;
+      case 'routes.unit':
+        return _root.home_screen_cards.unit_calc.title;
+      case 'routes.mash':
+        return _root.home_screen_cards.mash_calc.title;
       case 'generic.placeholder_label':
         return 'Dieses Feature ist noch nicht ganz fertig.\nSchau gerne später noch einmal vorbei!';
       case 'generic.cta_label':
@@ -288,8 +325,6 @@ extension on TranslationsDe {
         return 'Bug Report abschicken';
       case 'contact_screen.version_label':
         return 'Mit ♡ in Vallendar programmiert.';
-      case 'settings_screen.title':
-        return 'App-Einstellungen';
       case 'settings_screen.placeholder_label':
         return 'Aktuell gibt es nur wenige Einstellungen für die App, da sie noch in der Beta ist.\n\nSchau gerne später wieder vorbei!';
       default:
