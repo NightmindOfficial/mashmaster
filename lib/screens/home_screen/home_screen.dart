@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mashmaster/helpers/home_screen_card_data.dart';
 import 'package:mashmaster/i18n/generated/translations.g.dart';
 import 'package:mashmaster/widgets/screen_card.dart';
-import 'dart:developer' as dev;
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,8 +9,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = Translations.of(context);
-
-    dev.log("Home Screen rebuild!");
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
