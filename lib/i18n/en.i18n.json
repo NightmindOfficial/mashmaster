@@ -10,13 +10,14 @@
         "contact": "Contact"
     },
     "routes": {
+        "main": "@:app_title",
+        "main_dosage": "@:home_screen_cards.dosage_calc.title",
+        "main_general": "@:home_screen_cards.general_calc.title",
+        "main_brew": "@:home_screen_cards.brew_calc.title",
+        "main_unit": "@:home_screen_cards.unit_calc.title",
+        "main_mash": "@:home_screen_cards.mash_calc.title",
         "contact": "Contact",
-        "settings": "App Settings",
-        "dosage": "@:home_screen_cards.dosage_calc.title",
-        "general": "@:home_screen_cards.general_calc.title",
-        "brew": "@:home_screen_cards.brew_calc.title",
-        "unit": "@:home_screen_cards.unit_calc.title",
-        "mash": "@:home_screen_cards.mash_calc.title"
+        "settings": "App Settings"
     },
     "generic": {
         "placeholder-label": "This feature has not been finalized yet.\nPlease come back later!",

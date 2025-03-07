@@ -91,19 +91,21 @@ class _TranslationsRoutesDe extends TranslationsRoutesEn {
 
   // Translations
   @override
-  String get contact => 'Contact';
+  String get main => _root.app_title;
+  @override
+  String get main_dosage => _root.home_screen_cards.dosage_calc.title;
+  @override
+  String get main_general => _root.home_screen_cards.general_calc.title;
+  @override
+  String get main_brew => _root.home_screen_cards.brew_calc.title;
+  @override
+  String get main_unit => _root.home_screen_cards.unit_calc.title;
+  @override
+  String get main_mash => _root.home_screen_cards.mash_calc.title;
+  @override
+  String get contact => 'Kontakt';
   @override
   String get settings => 'App-Einstellungen';
-  @override
-  String get dosage => _root.home_screen_cards.dosage_calc.title;
-  @override
-  String get general => _root.home_screen_cards.general_calc.title;
-  @override
-  String get brew => _root.home_screen_cards.brew_calc.title;
-  @override
-  String get unit => _root.home_screen_cards.unit_calc.title;
-  @override
-  String get mash => _root.home_screen_cards.mash_calc.title;
 }
 
 // Path: generic
@@ -275,20 +277,22 @@ extension on TranslationsDe {
         return 'Home';
       case 'navbar.contact':
         return 'Kontakt';
+      case 'routes.main':
+        return _root.app_title;
+      case 'routes.main_dosage':
+        return _root.home_screen_cards.dosage_calc.title;
+      case 'routes.main_general':
+        return _root.home_screen_cards.general_calc.title;
+      case 'routes.main_brew':
+        return _root.home_screen_cards.brew_calc.title;
+      case 'routes.main_unit':
+        return _root.home_screen_cards.unit_calc.title;
+      case 'routes.main_mash':
+        return _root.home_screen_cards.mash_calc.title;
       case 'routes.contact':
-        return 'Contact';
+        return 'Kontakt';
       case 'routes.settings':
         return 'App-Einstellungen';
-      case 'routes.dosage':
-        return _root.home_screen_cards.dosage_calc.title;
-      case 'routes.general':
-        return _root.home_screen_cards.general_calc.title;
-      case 'routes.brew':
-        return _root.home_screen_cards.brew_calc.title;
-      case 'routes.unit':
-        return _root.home_screen_cards.unit_calc.title;
-      case 'routes.mash':
-        return _root.home_screen_cards.mash_calc.title;
       case 'generic.placeholder_label':
         return 'Dieses Feature ist noch nicht ganz fertig.\nSchau gerne später noch einmal vorbei!';
       case 'generic.cta_label':

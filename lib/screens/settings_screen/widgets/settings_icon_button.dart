@@ -9,7 +9,7 @@ class SettingsIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        context.push(MainRoute.settings.pathAbs);
+        context.pushReplacement(MainRoute.settings.pathAbs);
         // if (context.canPop()) {
         //   dev.log("Route can pop. Replacing current route with new route.");
         //   context.pushReplacement(MainRoute.settings.pathAbs);

@@ -11,7 +11,7 @@ class SettingsScreen extends StatelessWidget {
 
     return Scaffold(
       //* APPBAR
-      appBar: StageAppBar(),
+      appBar: StageAppBar(titleKey: 'settings'),
 
       ///* BODY
       body: SafeArea(

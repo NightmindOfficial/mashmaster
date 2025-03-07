@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mashmaster/i18n/generated/translations.g.dart';
+import 'package:mashmaster/layout/stage_app_bar.dart';
 import 'package:mashmaster/models/destination.dart';
 
 class Stage extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
+  final String titleKey;
+  final List<Widget>? _actions;
 
-  const Stage({required this.navigationShell, Key? key})
-    : super(key: key ?? const ValueKey<String>('stage'));
+  const Stage({
+    required this.navigationShell,
+    required this.titleKey,
+    List<Widget>? actions,
+    Key? key,
+  }) : _actions = actions,
+       super(key: key ?? const ValueKey<String>('stage'));
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +23,7 @@ class Stage extends StatelessWidget {
 
     return Scaffold(
       // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      appBar: AppBar(
-        primary: false,
-        toolbarHeight: 0,
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      ),
+      appBar: StageAppBar(actions: _actions, titleKey: titleKey),
 
       ///* BODY
       body: SafeArea(child: navigationShell),

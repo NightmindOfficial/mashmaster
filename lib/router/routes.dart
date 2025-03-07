@@ -5,7 +5,7 @@ enum HomeRoute { init, dosagecalc, generalcalc, brewcalc, unitcalc, mashcalc }
 class Routes<T extends Enum> {
   static final Map<Type, Map<Enum, String>> _routes = {
     MainRoute: {
-      MainRoute.home: "/",
+      MainRoute.home: "/main",
       MainRoute.contact: "/contact",
       MainRoute.settings: "/settings",
     },
@@ -32,10 +32,10 @@ class Routes<T extends Enum> {
       Enum parent = _parentRoutes[route.runtimeType]!;
       String parentPath = Routes.route(parent);
 
-      // Avoid double slashes when the parent path is "/"
-      if (parentPath == "/") {
-        return "/$basePath";
-      }
+      // Avoid double slashes when the parent path is "/" //! Deprecated, do not uncomment
+      // if (parentPath == "/") {
+      //   return "/$basePath";
+      // }
       return "$parentPath/$basePath";
     }
 

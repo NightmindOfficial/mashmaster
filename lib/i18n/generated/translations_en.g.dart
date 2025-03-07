@@ -79,13 +79,14 @@ class TranslationsRoutesEn {
   final Translations _root; // ignore: unused_field
 
   // Translations
+  String get main => _root.app_title;
+  String get main_dosage => _root.home_screen_cards.dosage_calc.title;
+  String get main_general => _root.home_screen_cards.general_calc.title;
+  String get main_brew => _root.home_screen_cards.brew_calc.title;
+  String get main_unit => _root.home_screen_cards.unit_calc.title;
+  String get main_mash => _root.home_screen_cards.mash_calc.title;
   String get contact => 'Contact';
   String get settings => 'App Settings';
-  String get dosage => _root.home_screen_cards.dosage_calc.title;
-  String get general => _root.home_screen_cards.general_calc.title;
-  String get brew => _root.home_screen_cards.brew_calc.title;
-  String get unit => _root.home_screen_cards.unit_calc.title;
-  String get mash => _root.home_screen_cards.mash_calc.title;
 }
 
 // Path: generic
@@ -230,20 +231,22 @@ extension on Translations {
         return 'Home';
       case 'navbar.contact':
         return 'Contact';
+      case 'routes.main':
+        return _root.app_title;
+      case 'routes.main_dosage':
+        return _root.home_screen_cards.dosage_calc.title;
+      case 'routes.main_general':
+        return _root.home_screen_cards.general_calc.title;
+      case 'routes.main_brew':
+        return _root.home_screen_cards.brew_calc.title;
+      case 'routes.main_unit':
+        return _root.home_screen_cards.unit_calc.title;
+      case 'routes.main_mash':
+        return _root.home_screen_cards.mash_calc.title;
       case 'routes.contact':
         return 'Contact';
       case 'routes.settings':
         return 'App Settings';
-      case 'routes.dosage':
-        return _root.home_screen_cards.dosage_calc.title;
-      case 'routes.general':
-        return _root.home_screen_cards.general_calc.title;
-      case 'routes.brew':
-        return _root.home_screen_cards.brew_calc.title;
-      case 'routes.unit':
-        return _root.home_screen_cards.unit_calc.title;
-      case 'routes.mash':
-        return _root.home_screen_cards.mash_calc.title;
       case 'generic.placeholder_label':
         return 'This feature has not been finalized yet.\nPlease come back later!';
       case 'generic.cta_label':
