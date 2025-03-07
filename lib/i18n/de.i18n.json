@@ -13,7 +13,7 @@
     "placeholder-label": "Dieses Feature ist noch nicht ganz fertig.\nSchau gerne später noch einmal vorbei!",
     "cta-label": "Ich möchte dieses Feature schneller haben!"
   },
-  "home_screen_cards(interface=HomeScreenCard)": {
+  "home_screen_cards": {
     "dosage_calc": {
       "title": "Reinigungsmittel-Dosierer",
       "subtitle": "z.B. PBW, StarSan, SaniClean, ChemiPro Oxi"

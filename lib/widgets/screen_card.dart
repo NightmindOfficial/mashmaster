@@ -5,7 +5,7 @@ class ScreenCard extends StatelessWidget {
   final String _title;
   final String? _subtitle;
   final IconData _icon;
-  final MaterialColor _color;
+  final Color _color;
   final String? _location;
   final Function? _onTap;
 
@@ -13,7 +13,7 @@ class ScreenCard extends StatelessWidget {
     super.key,
     required String title,
     required IconData icon,
-    required MaterialColor color,
+    required Color color,
     String? subtitle,
     String? location,
     Function? onTap,
@@ -31,7 +31,7 @@ class ScreenCard extends StatelessWidget {
   String get title => _title;
   String? get subtitle => _subtitle;
   IconData get icon => _icon;
-  MaterialColor get color => _color;
+  Color get color => _color;
   String? get location => _location;
   Function? get onTap => _onTap;
 

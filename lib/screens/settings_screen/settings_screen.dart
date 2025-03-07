@@ -2,16 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:mashmaster/i18n/generated/translations.g.dart';
 import 'package:mashmaster/layout/stage_app_bar.dart';
 
-class SettingsScreen extends StatefulWidget {
+class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
   @override
-  State<SettingsScreen> createState() => _SettingsScreenState();
-}
-
-class _SettingsScreenState extends State<SettingsScreen> {
-  @override
   Widget build(BuildContext context) {
+    final t = Translations.of(context);
+
     return Scaffold(
       //* APPBAR
       appBar: StageAppBar(),
@@ -30,9 +27,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   initialSelection: LocaleSettings.currentLocale,
                   onSelected: (locale) {
                     if (locale != null) {
-                      setState(() {
-                        LocaleSettings.setLocale(locale);
-                      });
+                      LocaleSettings.setLocale(locale);
                     }
                   },
                   dropdownMenuEntries: <DropdownMenuEntry<AppLocale>>[

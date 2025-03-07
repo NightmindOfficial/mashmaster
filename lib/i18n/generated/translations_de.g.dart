@@ -145,7 +145,7 @@ class _TranslationsSettingsScreenDe extends TranslationsSettingsScreenEn {
 }
 
 // Path: home_screen_cards.dosage_calc
-class _TranslationsHomeScreenCardsDosageCalcDe extends TranslationsHomeScreenCardsDosageCalcEn with HomeScreenCard {
+class _TranslationsHomeScreenCardsDosageCalcDe extends TranslationsHomeScreenCardsDosageCalcEn {
   _TranslationsHomeScreenCardsDosageCalcDe._(TranslationsDe root) : this._root = root, super.internal(root);
 
   final TranslationsDe _root; // ignore: unused_field
@@ -158,7 +158,7 @@ class _TranslationsHomeScreenCardsDosageCalcDe extends TranslationsHomeScreenCar
 }
 
 // Path: home_screen_cards.general_calc
-class _TranslationsHomeScreenCardsGeneralCalcDe extends TranslationsHomeScreenCardsGeneralCalcEn with HomeScreenCard {
+class _TranslationsHomeScreenCardsGeneralCalcDe extends TranslationsHomeScreenCardsGeneralCalcEn {
   _TranslationsHomeScreenCardsGeneralCalcDe._(TranslationsDe root) : this._root = root, super.internal(root);
 
   final TranslationsDe _root; // ignore: unused_field
@@ -171,7 +171,7 @@ class _TranslationsHomeScreenCardsGeneralCalcDe extends TranslationsHomeScreenCa
 }
 
 // Path: home_screen_cards.brew_calc
-class _TranslationsHomeScreenCardsBrewCalcDe extends TranslationsHomeScreenCardsBrewCalcEn with HomeScreenCard {
+class _TranslationsHomeScreenCardsBrewCalcDe extends TranslationsHomeScreenCardsBrewCalcEn {
   _TranslationsHomeScreenCardsBrewCalcDe._(TranslationsDe root) : this._root = root, super.internal(root);
 
   final TranslationsDe _root; // ignore: unused_field
@@ -184,7 +184,7 @@ class _TranslationsHomeScreenCardsBrewCalcDe extends TranslationsHomeScreenCards
 }
 
 // Path: home_screen_cards.unit_calc
-class _TranslationsHomeScreenCardsUnitCalcDe extends TranslationsHomeScreenCardsUnitCalcEn with HomeScreenCard {
+class _TranslationsHomeScreenCardsUnitCalcDe extends TranslationsHomeScreenCardsUnitCalcEn {
   _TranslationsHomeScreenCardsUnitCalcDe._(TranslationsDe root) : this._root = root, super.internal(root);
 
   final TranslationsDe _root; // ignore: unused_field
@@ -197,7 +197,7 @@ class _TranslationsHomeScreenCardsUnitCalcDe extends TranslationsHomeScreenCards
 }
 
 // Path: home_screen_cards.mash_calc
-class _TranslationsHomeScreenCardsMashCalcDe extends TranslationsHomeScreenCardsMashCalcEn with HomeScreenCard {
+class _TranslationsHomeScreenCardsMashCalcDe extends TranslationsHomeScreenCardsMashCalcEn {
   _TranslationsHomeScreenCardsMashCalcDe._(TranslationsDe root) : this._root = root, super.internal(root);
 
   final TranslationsDe _root; // ignore: unused_field

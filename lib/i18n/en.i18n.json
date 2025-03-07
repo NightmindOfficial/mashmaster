@@ -13,9 +13,9 @@
         "placeholder-label": "This feature has not been finalized yet.\nPlease come back later!",
         "cta-label": "I want this feature sooner!"
     },
-    "home_screen_cards(interface=HomeScreenCard)": {
+    "home_screen_cards": {
         "dosage_calc": {
-            "title": "Cleaning Agent Dosage",
+            "title": "Cleaning Agent Dosing Tool",
             "subtitle": "e.g., PBW, StarSan, SaniClean, ChemiPro Oxi"
         },
         "general_calc": {

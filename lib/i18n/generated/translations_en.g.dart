@@ -121,67 +121,57 @@ class TranslationsSettingsScreenEn {
 }
 
 // Path: home_screen_cards.dosage_calc
-class TranslationsHomeScreenCardsDosageCalcEn with HomeScreenCard {
+class TranslationsHomeScreenCardsDosageCalcEn {
   TranslationsHomeScreenCardsDosageCalcEn.internal(this._root);
 
   final Translations _root; // ignore: unused_field
 
   // Translations
-  @override
-  String get title => 'Cleaning Agent Dosage';
-  @override
+  String get title => 'Cleaning Agent Dosing Tool';
   String get subtitle => 'e.g., PBW, StarSan, SaniClean, ChemiPro Oxi';
 }
 
 // Path: home_screen_cards.general_calc
-class TranslationsHomeScreenCardsGeneralCalcEn with HomeScreenCard {
+class TranslationsHomeScreenCardsGeneralCalcEn {
   TranslationsHomeScreenCardsGeneralCalcEn.internal(this._root);
 
   final Translations _root; // ignore: unused_field
 
   // Translations
-  @override
   String get title => 'General Calculations';
-  @override
   String get subtitle => 'ABV (%vol), Calories, Refractometer, Boil-Off Rate, Hydrometer Correction, Carbonation';
 }
 
 // Path: home_screen_cards.brew_calc
-class TranslationsHomeScreenCardsBrewCalcEn with HomeScreenCard {
+class TranslationsHomeScreenCardsBrewCalcEn {
   TranslationsHomeScreenCardsBrewCalcEn.internal(this._root);
 
   final Translations _root; // ignore: unused_field
 
   // Translations
-  @override
   String get title => 'Brewing Conversions';
-  @override
   String get subtitle => 'Extract Levels, Beer Color';
 }
 
 // Path: home_screen_cards.unit_calc
-class TranslationsHomeScreenCardsUnitCalcEn with HomeScreenCard {
+class TranslationsHomeScreenCardsUnitCalcEn {
   TranslationsHomeScreenCardsUnitCalcEn.internal(this._root);
 
   final Translations _root; // ignore: unused_field
 
   // Translations
-  @override
   String get title => 'Unit Conversions';
-  @override
   String get subtitle => 'Volume, Weight, Temperature';
 }
 
 // Path: home_screen_cards.mash_calc
-class TranslationsHomeScreenCardsMashCalcEn with HomeScreenCard {
+class TranslationsHomeScreenCardsMashCalcEn {
   TranslationsHomeScreenCardsMashCalcEn.internal(this._root);
 
   final Translations _root; // ignore: unused_field
 
   // Translations
-  @override
   String get title => 'Mash Calculations';
-  @override
   String get subtitle => 'Mash-In & Mash Step Temperatures, Mash Tun Calibration';
 }
 
@@ -229,7 +219,7 @@ extension on Translations {
       case 'generic.cta_label':
         return 'I want this feature sooner!';
       case 'home_screen_cards.dosage_calc.title':
-        return 'Cleaning Agent Dosage';
+        return 'Cleaning Agent Dosing Tool';
       case 'home_screen_cards.dosage_calc.subtitle':
         return 'e.g., PBW, StarSan, SaniClean, ChemiPro Oxi';
       case 'home_screen_cards.general_calc.title':

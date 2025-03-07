@@ -11,6 +11,7 @@ class StageAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       // forceMaterialTransparency: true,
       backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+
       title: Text(
         getTitleForCurrentRoute(context),
         style: TextStyle(fontWeight: FontWeight.bold),

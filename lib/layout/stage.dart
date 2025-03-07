@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mashmaster/i18n/generated/translations.g.dart';
 import 'package:mashmaster/models/destination.dart';
 
 class Stage extends StatelessWidget {
@@ -10,6 +11,8 @@ class Stage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = Translations.of(context);
+
     return Scaffold(
       // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       appBar: AppBar(
@@ -28,15 +31,13 @@ class Stage extends StatelessWidget {
         onDestinationSelected: _goBranch,
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         destinations:
-            mainDestinations
-                .map(
-                  (destination) => NavigationDestination(
-                    icon: Icon(destination.icon),
-                    label: destination.label,
-                    selectedIcon: Icon(destination.selectedIcon),
-                  ),
-                )
-                .toList(),
+            mainDestinations.entries.map((entry) {
+              return NavigationDestination(
+                icon: Icon(entry.value.icon),
+                label: t['navbar.${entry.key.name}'],
+                selectedIcon: Icon(entry.value.selectedIcon),
+              );
+            }).toList(),
       ),
     );
   }

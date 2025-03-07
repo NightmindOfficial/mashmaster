@@ -14,6 +14,7 @@ class ContactScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final package = AppInfo.of(context).package;
+    final t = Translations.of(context);
 
     return Scaffold(
       appBar: StageAppBar(actions: [SettingsIconButton()]),
@@ -27,7 +28,7 @@ class ContactScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "For Feedback, Suggestions and other Comments",
+                    t.contact_screen.label_one,
                     style: TextStyle(fontSize: 16, height: 3),
                     textAlign: TextAlign.center,
                   ),
@@ -58,8 +59,10 @@ class ContactScreen extends StatelessWidget {
                                   ListTile(
                                     minTileHeight: 0,
                                     contentPadding: EdgeInsets.zero,
-                                    title: Text("@NightmindOfficial"),
-                                    subtitle: Text("App Developer"),
+                                    title: Text(t.contact_screen.dev_card.name),
+                                    subtitle: Text(
+                                      t.contact_screen.dev_card.title,
+                                    ),
                                     isThreeLine: false,
                                     titleTextStyle: TextStyle(
                                       fontSize: 24,
@@ -121,7 +124,7 @@ class ContactScreen extends StatelessWidget {
                   ),
                   Divider(),
                   Text(
-                    "Want to report a bug?",
+                    t.contact_screen.bug_report.label,
                     style: TextStyle(fontSize: 16, height: 3),
                   ),
                   ElevatedButton.icon(
@@ -131,7 +134,7 @@ class ContactScreen extends StatelessWidget {
                           context,
                         ).show(inheritMaterialTheme: true),
                     label: Text(
-                      "Submit Bug Report",
+                      t.contact_screen.bug_report.button_label,
                       style: TextStyle(fontSize: 18),
                     ),
                   ),

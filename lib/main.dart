@@ -8,6 +8,7 @@ import 'package:mashmaster/theme/theme.dart';
 import 'package:mashmaster/theme/util.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wiredash/wiredash.dart';
+import 'dart:developer' as dev;
 
 ///*** FEATURE ROADMAP ***\\\
 ///
@@ -36,13 +37,21 @@ import 'package:wiredash/wiredash.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load();
-  final pref = await SharedPreferences.getInstance();
 
-  String? storedLocale = maybeLoadLocaleFromStorage(pref);
-  (storedLocale != null)
-      ? LocaleSettings.setLocaleRaw(storedLocale)
-      : LocaleSettings.useDeviceLocale();
+  final String? prefLang = await retrieveLocaleFromPrefs();
 
+  if (prefLang != null) {
+    dev.log(
+      "[App Startup] Found lang flag in SharedPreferences. Setting language to $prefLang.",
+    );
+    LocaleSettings.setLocaleRaw(prefLang);
+  } else {
+    dev.log("[App Startup] No lang flag found. Using Device Locale.");
+
+    LocaleSettings.useDeviceLocale();
+  }
+
+  //* APP STARTUP *\\
   runApp(
     AppInfo(
       data: await AppInfoData.get(),
@@ -51,8 +60,9 @@ void main() async {
   );
 }
 
-String? maybeLoadLocaleFromStorage(SharedPreferences pref) {
-  return pref.getString('appLang');
+Future<String?> retrieveLocaleFromPrefs() async {
+  final prefs = await SharedPreferences.getInstance();
+  return prefs.getString('lang');
 }
 
 class ApplicationWidget extends StatefulWidget {
@@ -63,7 +73,14 @@ class ApplicationWidget extends StatefulWidget {
 }
 
 class _ApplicationWidgetState extends State<ApplicationWidget> {
-  // This widget is the root of your application.
+  @override
+  void initState() {
+    super.initState();
+    LocaleSettings.getLocaleStream().listen((event) {
+      dev.log('Locale Changed: $event');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final Brightness brightness =
@@ -91,7 +108,7 @@ class _ApplicationWidgetState extends State<ApplicationWidget> {
         theme: brightness == Brightness.light ? theme.light() : theme.dark(),
         locale: TranslationProvider.of(context).flutterLocale,
         supportedLocales: AppLocaleUtils.supportedLocales,
-        localizationsDelegates: GlobalMaterialLocalizations.delegates,
+        localizationsDelegates: [...GlobalMaterialLocalizations.delegates],
       ),
     );
   }
