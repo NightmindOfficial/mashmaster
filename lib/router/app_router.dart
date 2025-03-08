@@ -16,7 +16,7 @@ final shellNavigatorContactsKey = GlobalKey<NavigatorState>(
 );
 
 final GoRouter router = GoRouter(
-  debugLogDiagnostics: true, //FUTURE remove this?
+  debugLogDiagnostics: false,
   navigatorKey: _rootNavigatorKey,
   initialLocation: MainRoute.home.path,
   routes: [

@@ -23,7 +23,7 @@ import 'dart:developer' as dev;
 ///   - don't know what's best practice nowadays
 ///[ ] Implement actual calculations
 ///   - high prio
-///[ ] Privacy Policy and Stuff
+///[x] Privacy Policy and Stuff
 ///   - medium prio
 ///   - needs to be done before publication
 ///[x] Look into consistent font hierarchy
