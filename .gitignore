@@ -49,3 +49,6 @@ app.*.map.json
 .flaskenv*
 !.env.project
 !.env.vault
+
+# App Signing
+*.jks
