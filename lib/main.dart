@@ -10,29 +10,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wiredash/wiredash.dart';
 import 'dart:developer' as dev;
 
-///*** FEATURE ROADMAP ***\\\
+///*** FEATURE ROADMAP - Update 03/11/25***\\\
 ///
-///[x] Introduce Bug Tracker (-> Linum as Best Practice)
-///   - medium prio
-///   - pretty easy snacc
-///[x] Finalize App Routing System
-///   - high prio
-///   - utterly complicated for such a simple app
-///[x] Localization
-///   - medium prio
-///   - don't know what's best practice nowadays
 ///[ ] Implement actual calculations
 ///   - high prio
-///[x] Privacy Policy and Stuff
+///[ ] Theme Switcher
+///   - high prio
+///   - Dark mode looks wack af
+///[ ] Language Pref Persister
 ///   - medium prio
-///   - needs to be done before publication
-///[x] Look into consistent font hierarchy
-///   - medium prio
-///[x] Splash Screen
-///   - medium prio
-///[x] Logo Icon
-///   - medium prio
-///   - easy snacc
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
