@@ -19,7 +19,7 @@ import 'dart:developer' as dev;
 ///[x] Theme Switcher
 ///   - high prio
 ///   - Dark mode looks wack af
-///[ ] Language Pref Persister
+///[x] Language Pref Persister
 ///   - medium prio
 
 void main() async {
