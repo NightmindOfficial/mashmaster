@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:mashmaster/i18n/generated/translations.g.dart';
 import 'package:mashmaster/layout/stage_app_bar.dart';
+import 'package:mashmaster/screens/settings_screen/widgets/system_theme_switch.dart';
+import 'package:mashmaster/screens/settings_screen/widgets/theme_switch.dart';
 
-class SettingsScreen extends StatelessWidget {
+class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
+  @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     final t = Translations.of(context);
@@ -44,6 +51,9 @@ class SettingsScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              Divider(height: 32),
+              ThemeSwitch(),
+              SystemThemeSwitch(),
               Divider(height: 32),
               Text(
                 t.settings_screen.placeholder_label,

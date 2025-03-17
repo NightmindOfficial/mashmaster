@@ -3,9 +3,11 @@ import 'package:flutter_app_info/flutter_app_info.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:mashmaster/i18n/generated/translations.g.dart';
+import 'package:mashmaster/provider/theme_notifier.dart';
 import 'package:mashmaster/router/app_router.dart';
 import 'package:mashmaster/theme/theme.dart';
 import 'package:mashmaster/theme/util.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wiredash/wiredash.dart';
 import 'dart:developer' as dev;
@@ -24,13 +26,13 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load();
 
-  final String? prefLang = await retrieveLocaleFromPrefs();
+  final Map<String, dynamic> prefMap = await retrievePrefs();
 
-  if (prefLang != null) {
+  if (prefMap['lang'] != null) {
     dev.log(
-      "[App Startup] Found lang flag in SharedPreferences. Setting language to $prefLang.",
+      "[App Startup] Found lang flag in SharedPreferences. Setting language to ${prefMap['lang']}.",
     );
-    LocaleSettings.setLocaleRaw(prefLang);
+    LocaleSettings.setLocaleRaw(prefMap['lang']);
   } else {
     dev.log("[App Startup] No lang flag found. Using Device Locale.");
 
@@ -39,16 +41,28 @@ void main() async {
 
   //* APP STARTUP *\\
   runApp(
-    AppInfo(
-      data: await AppInfoData.get(),
-      child: TranslationProvider(child: const ApplicationWidget()),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ThemeNotifier>(create: (_) => ThemeNotifier()),
+      ],
+      child: AppInfo(
+        data: await AppInfoData.get(),
+        child: TranslationProvider(child: const ApplicationWidget()),
+      ),
     ),
   );
 }
 
-Future<String?> retrieveLocaleFromPrefs() async {
+Future<Map<String, dynamic>> retrievePrefs() async {
   final prefs = await SharedPreferences.getInstance();
-  return prefs.getString('lang');
+  final Set<String> keys = prefs.getKeys();
+
+  final Map<String, dynamic> allPrefs = {};
+  for (String key in keys) {
+    final value = prefs.get(key);
+    allPrefs[key] = value;
+  }
+  return allPrefs;
 }
 
 class ApplicationWidget extends StatefulWidget {
@@ -69,11 +83,12 @@ class _ApplicationWidgetState extends State<ApplicationWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final Brightness brightness =
-        View.of(context).platformDispatcher.platformBrightness;
+    dev.log("Main Build");
+    // final Brightness brightness =
+    // View.of(context).platformDispatcher.platformBrightness;
+    final ThemeNotifier themeNotifier = context.watch<ThemeNotifier>();
 
     TextTheme textTheme = createTextTheme(context, "Outfit", "Outfit");
-
     MaterialTheme theme = MaterialTheme(textTheme);
 
     return Wiredash(
@@ -91,7 +106,10 @@ class _ApplicationWidgetState extends State<ApplicationWidget> {
         // debugShowCheckedModeBanner: false,
         onGenerateTitle: (context) => Translations.of(context).app_title,
         debugShowCheckedModeBanner: false,
-        theme: brightness == Brightness.light ? theme.light() : theme.dark(),
+        // theme: brightness == Brightness.light ? theme.light() : theme.dark(),
+        theme: theme.light(),
+        darkTheme: theme.dark(),
+        themeMode: themeNotifier.mode,
         locale: TranslationProvider.of(context).flutterLocale,
         supportedLocales: AppLocaleUtils.supportedLocales,
         localizationsDelegates: [...GlobalMaterialLocalizations.delegates],
