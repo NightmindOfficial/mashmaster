@@ -12,15 +12,10 @@ import 'package:provider/provider.dart';
 import 'package:wiredash/wiredash.dart';
 import 'dart:developer' as dev;
 
-///*** FEATURE ROADMAP - Update 03/11/25***\\\
+///*** FEATURE ROADMAP - Update 03/17/25***\\\
 ///
 ///[ ] Implement actual calculations
-///   - high prio
-///[x] Theme Switcher
-///   - high prio
-///   - Dark mode looks wack af
-///[x] Language Pref Persister
-///   - medium prio
+///   - more or less the only thing left to do
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
