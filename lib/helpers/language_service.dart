@@ -1,5 +1,6 @@
 import 'dart:developer' as dev;
 
+import 'package:mashmaster/helpers/pref_service.dart';
 import 'package:mashmaster/i18n/generated/translations.g.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -21,16 +22,4 @@ Future<void> persistLanguage(String languageCode) async {
   final prefs = await SharedPreferences.getInstance();
   await prefs.setString("lang", languageCode);
   dev.log("Successfully persisted language");
-}
-
-Future<Map<String, dynamic>> retrievePrefs() async {
-  final prefs = await SharedPreferences.getInstance();
-  final Set<String> keys = prefs.getKeys();
-
-  final Map<String, dynamic> allPrefs = {};
-  for (String key in keys) {
-    final value = prefs.get(key);
-    allPrefs[key] = value;
-  }
-  return allPrefs;
 }
