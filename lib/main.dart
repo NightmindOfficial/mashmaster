@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_info/flutter_app_info.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:mashmaster/helpers/language_service.dart';
 import 'package:mashmaster/i18n/generated/translations.g.dart';
 import 'package:mashmaster/provider/theme_notifier.dart';
 import 'package:mashmaster/router/app_router.dart';
 import 'package:mashmaster/theme/theme.dart';
 import 'package:mashmaster/theme/util.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wiredash/wiredash.dart';
 import 'dart:developer' as dev;
 
@@ -25,19 +25,7 @@ import 'dart:developer' as dev;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load();
-
-  final Map<String, dynamic> prefMap = await retrievePrefs();
-
-  if (prefMap['lang'] != null) {
-    dev.log(
-      "[App Startup] Found lang flag in SharedPreferences. Setting language to ${prefMap['lang']}.",
-    );
-    LocaleSettings.setLocaleRaw(prefMap['lang']);
-  } else {
-    dev.log("[App Startup] No lang flag found. Using Device Locale.");
-
-    LocaleSettings.useDeviceLocale();
-  }
+  await setLanguageFromPrefs();
 
   //* APP STARTUP *\\
   runApp(
@@ -51,18 +39,6 @@ void main() async {
       ),
     ),
   );
-}
-
-Future<Map<String, dynamic>> retrievePrefs() async {
-  final prefs = await SharedPreferences.getInstance();
-  final Set<String> keys = prefs.getKeys();
-
-  final Map<String, dynamic> allPrefs = {};
-  for (String key in keys) {
-    final value = prefs.get(key);
-    allPrefs[key] = value;
-  }
-  return allPrefs;
 }
 
 class ApplicationWidget extends StatefulWidget {
