@@ -58,6 +58,8 @@
         "version_label": "Made with ♡ in Vallendar."
     },
     "settings_screen": {
+        "theme-switch": "Dark Mode",
+        "system-theme-switch": "Use System Theme",
         "placeholder-label": "There are currently very few settings for this app, since it is still in Beta.\n\nPlease come back later!"
     }
 }

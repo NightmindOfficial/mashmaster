@@ -165,6 +165,10 @@ class _TranslationsSettingsScreenDe extends TranslationsSettingsScreenEn {
 
   // Translations
   @override
+  String get theme_switch => 'Dunkles Design';
+  @override
+  String get system_theme_switch => 'Systemdesign verwenden';
+  @override
   String get placeholder_label =>
       'Aktuell gibt es nur wenige Einstellungen für die App, da sie noch in der Beta ist.\n\nSchau gerne später wieder vorbei!';
 }
@@ -329,6 +333,10 @@ extension on TranslationsDe {
         return 'Bug Report abschicken';
       case 'contact_screen.version_label':
         return 'Mit ♡ in Vallendar programmiert.';
+      case 'settings_screen.theme_switch':
+        return 'Dunkles Design';
+      case 'settings_screen.system_theme_switch':
+        return 'Systemdesign verwenden';
       case 'settings_screen.placeholder_label':
         return 'Aktuell gibt es nur wenige Einstellungen für die App, da sie noch in der Beta ist.\n\nSchau gerne später wieder vorbei!';
       default:
