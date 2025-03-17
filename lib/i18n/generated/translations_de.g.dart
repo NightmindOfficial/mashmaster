@@ -169,6 +169,8 @@ class _TranslationsSettingsScreenDe extends TranslationsSettingsScreenEn {
   @override
   String get system_theme_switch => 'Systemdesign verwenden';
   @override
+  late final _TranslationsSettingsScreenDeleteAppDataDe delete_app_data = _TranslationsSettingsScreenDeleteAppDataDe._(_root);
+  @override
   String get placeholder_label =>
       'Aktuell gibt es nur wenige Einstellungen für die App, da sie noch in der Beta ist.\n\nSchau gerne später wieder vorbei!';
 }
@@ -264,6 +266,44 @@ class _TranslationsContactScreenBugReportDe extends TranslationsContactScreenBug
   String get button_label => 'Bug Report abschicken';
 }
 
+// Path: settings_screen.delete_app_data
+class _TranslationsSettingsScreenDeleteAppDataDe extends TranslationsSettingsScreenDeleteAppDataEn {
+  _TranslationsSettingsScreenDeleteAppDataDe._(TranslationsDe root) : this._root = root, super.internal(root);
+
+  final TranslationsDe _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get title => 'App-Daten löschen';
+  @override
+  String get content =>
+      'Diese Aktion löscht alle lokalen App-Daten (z.B. Einstellungen von Sprache und Design). Andere Daten auf dem Gerät sind nicht betroffen.';
+  @override
+  String get button_label => 'Jetzt löschen';
+  @override
+  late final _TranslationsSettingsScreenDeleteAppDataAlertDialogDe alert_dialog = _TranslationsSettingsScreenDeleteAppDataAlertDialogDe._(_root);
+  @override
+  String get snackbar => 'Daten gelöscht. Starte die App neu, um die Änderungen anzuwenden.';
+}
+
+// Path: settings_screen.delete_app_data.alert_dialog
+class _TranslationsSettingsScreenDeleteAppDataAlertDialogDe extends TranslationsSettingsScreenDeleteAppDataAlertDialogEn {
+  _TranslationsSettingsScreenDeleteAppDataAlertDialogDe._(TranslationsDe root) : this._root = root, super.internal(root);
+
+  final TranslationsDe _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get title => 'Lokale App-Daten löschen?';
+  @override
+  String get content =>
+      'Diese Aktion kann nicht rückgängig gemacht werden. Deine bevorzugte Sprache, Design, und andere Einstellungen werden zurückgesetzt. Die App muss neu gestartet werden, damit die Änderungen wirksam werden.';
+  @override
+  String get abort_label => 'Daten behalten';
+  @override
+  String get execute_label => 'Löschen';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on TranslationsDe {
@@ -337,6 +377,22 @@ extension on TranslationsDe {
         return 'Dunkles Design';
       case 'settings_screen.system_theme_switch':
         return 'Systemdesign verwenden';
+      case 'settings_screen.delete_app_data.title':
+        return 'App-Daten löschen';
+      case 'settings_screen.delete_app_data.content':
+        return 'Diese Aktion löscht alle lokalen App-Daten (z.B. Einstellungen von Sprache und Design). Andere Daten auf dem Gerät sind nicht betroffen.';
+      case 'settings_screen.delete_app_data.button_label':
+        return 'Jetzt löschen';
+      case 'settings_screen.delete_app_data.alert_dialog.title':
+        return 'Lokale App-Daten löschen?';
+      case 'settings_screen.delete_app_data.alert_dialog.content':
+        return 'Diese Aktion kann nicht rückgängig gemacht werden. Deine bevorzugte Sprache, Design, und andere Einstellungen werden zurückgesetzt. Die App muss neu gestartet werden, damit die Änderungen wirksam werden.';
+      case 'settings_screen.delete_app_data.alert_dialog.abort_label':
+        return 'Daten behalten';
+      case 'settings_screen.delete_app_data.alert_dialog.execute_label':
+        return 'Löschen';
+      case 'settings_screen.delete_app_data.snackbar':
+        return 'Daten gelöscht. Starte die App neu, um die Änderungen anzuwenden.';
       case 'settings_screen.placeholder_label':
         return 'Aktuell gibt es nur wenige Einstellungen für die App, da sie noch in der Beta ist.\n\nSchau gerne später wieder vorbei!';
       default:
