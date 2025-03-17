@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mashmaster/i18n/generated/translations.g.dart';
 import 'package:mashmaster/provider/theme_notifier.dart';
 import 'package:provider/provider.dart';
 
@@ -7,6 +8,7 @@ class ThemeSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = Translations.of(context);
     final ThemeNotifier themeNotifier = context.watch<ThemeNotifier>();
 
     return SwitchListTile.adaptive(
@@ -30,7 +32,7 @@ class ThemeSwitch extends StatelessWidget {
               : (_) {
                 themeNotifier.toggleTheme();
               },
-      title: Text("Dark Mode"),
+      title: Text(t.settings_screen.theme_switch),
     );
   }
 }

@@ -134,6 +134,8 @@ class TranslationsSettingsScreenEn {
   final Translations _root; // ignore: unused_field
 
   // Translations
+  String get theme_switch => 'Dark Mode';
+  String get system_theme_switch => 'Use System Theme';
   String get placeholder_label => 'There are currently very few settings for this app, since it is still in Beta.\n\nPlease come back later!';
 }
 
@@ -283,6 +285,10 @@ extension on Translations {
         return 'Submit Bug Report';
       case 'contact_screen.version_label':
         return 'Made with ♡ in Vallendar.';
+      case 'settings_screen.theme_switch':
+        return 'Dark Mode';
+      case 'settings_screen.system_theme_switch':
+        return 'Use System Theme';
       case 'settings_screen.placeholder_label':
         return 'There are currently very few settings for this app, since it is still in Beta.\n\nPlease come back later!';
       default:

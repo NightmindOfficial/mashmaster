@@ -58,6 +58,8 @@
     "version_label": "Mit ♡ in Vallendar programmiert."
   },
   "settings_screen": {
+    "theme-switch": "Dunkles Design",
+    "system-theme-switch": "Systemdesign verwenden",
     "placeholder-label": "Aktuell gibt es nur wenige Einstellungen für die App, da sie noch in der Beta ist.\n\nSchau gerne später wieder vorbei!"
   }
 }
