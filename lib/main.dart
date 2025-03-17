@@ -16,7 +16,7 @@ import 'dart:developer' as dev;
 ///
 ///[ ] Implement actual calculations
 ///   - high prio
-///[ ] Theme Switcher
+///[x] Theme Switcher
 ///   - high prio
 ///   - Dark mode looks wack af
 ///[ ] Language Pref Persister
