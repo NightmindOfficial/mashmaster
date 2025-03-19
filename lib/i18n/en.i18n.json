@@ -58,6 +58,20 @@
         "version_label": "Made with ♡ in Vallendar."
     },
     "settings_screen": {
+        "theme-switch": "Dark Mode",
+        "system-theme-switch": "Use System Theme",
+        "delete-app-data": {
+            "title": "Delete App Data",
+            "content": "This deletes your preference data (e.g. preferred theme mode, and language). No other data will be affected.",
+            "button-label": "Delete Now",
+            "alert-dialog": {
+                "title": "Delete Local App Data?",
+                "content": "This action cannot be undone. Your preferred language, theme mode and other settings will be deleted. You need to restart the app for the changes to take effect.",
+                "abort-label": "Keep Data",
+                "execute-label": "Delete"
+            },
+            "snackbar": "Data deleted. Restart the app for the changes to take effect."
+        },
         "placeholder-label": "There are currently very few settings for this app, since it is still in Beta.\n\nPlease come back later!"
     }
 }

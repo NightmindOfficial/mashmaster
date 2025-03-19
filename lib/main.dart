@@ -2,67 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_info/flutter_app_info.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:mashmaster/helpers/language_service.dart';
 import 'package:mashmaster/i18n/generated/translations.g.dart';
+import 'package:mashmaster/provider/theme_notifier.dart';
 import 'package:mashmaster/router/app_router.dart';
 import 'package:mashmaster/theme/theme.dart';
 import 'package:mashmaster/theme/util.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
 import 'package:wiredash/wiredash.dart';
 import 'dart:developer' as dev;
 
-///*** FEATURE ROADMAP ***\\\
+///*** FEATURE ROADMAP - Update 03/17/25***\\\
 ///
-///[x] Introduce Bug Tracker (-> Linum as Best Practice)
-///   - medium prio
-///   - pretty easy snacc
-///[x] Finalize App Routing System
-///   - high prio
-///   - utterly complicated for such a simple app
-///[x] Localization
-///   - medium prio
-///   - don't know what's best practice nowadays
 ///[ ] Implement actual calculations
-///   - high prio
-///[x] Privacy Policy and Stuff
-///   - medium prio
-///   - needs to be done before publication
-///[x] Look into consistent font hierarchy
-///   - medium prio
-///[x] Splash Screen
-///   - medium prio
-///[x] Logo Icon
-///   - medium prio
-///   - easy snacc
+///   - more or less the only thing left to do
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load();
-
-  final String? prefLang = await retrieveLocaleFromPrefs();
-
-  if (prefLang != null) {
-    dev.log(
-      "[App Startup] Found lang flag in SharedPreferences. Setting language to $prefLang.",
-    );
-    LocaleSettings.setLocaleRaw(prefLang);
-  } else {
-    dev.log("[App Startup] No lang flag found. Using Device Locale.");
-
-    LocaleSettings.useDeviceLocale();
-  }
+  await setLanguageFromPrefs();
 
   //* APP STARTUP *\\
   runApp(
-    AppInfo(
-      data: await AppInfoData.get(),
-      child: TranslationProvider(child: const ApplicationWidget()),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ThemeNotifier>(create: (_) => ThemeNotifier()),
+      ],
+      child: AppInfo(
+        data: await AppInfoData.get(),
+        child: TranslationProvider(child: const ApplicationWidget()),
+      ),
     ),
   );
-}
-
-Future<String?> retrieveLocaleFromPrefs() async {
-  final prefs = await SharedPreferences.getInstance();
-  return prefs.getString('lang');
 }
 
 class ApplicationWidget extends StatefulWidget {
@@ -83,11 +54,12 @@ class _ApplicationWidgetState extends State<ApplicationWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final Brightness brightness =
-        View.of(context).platformDispatcher.platformBrightness;
+    dev.log("Main Build");
+    // final Brightness brightness =
+    // View.of(context).platformDispatcher.platformBrightness;
+    final ThemeNotifier themeNotifier = context.watch<ThemeNotifier>();
 
     TextTheme textTheme = createTextTheme(context, "Outfit", "Outfit");
-
     MaterialTheme theme = MaterialTheme(textTheme);
 
     return Wiredash(
@@ -105,7 +77,10 @@ class _ApplicationWidgetState extends State<ApplicationWidget> {
         // debugShowCheckedModeBanner: false,
         onGenerateTitle: (context) => Translations.of(context).app_title,
         debugShowCheckedModeBanner: false,
-        theme: brightness == Brightness.light ? theme.light() : theme.dark(),
+        // theme: brightness == Brightness.light ? theme.light() : theme.dark(),
+        theme: theme.light(),
+        darkTheme: theme.dark(),
+        themeMode: themeNotifier.mode,
         locale: TranslationProvider.of(context).flutterLocale,
         supportedLocales: AppLocaleUtils.supportedLocales,
         localizationsDelegates: [...GlobalMaterialLocalizations.delegates],

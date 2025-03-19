@@ -38,6 +38,7 @@ class ScreenCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Theme.of(context).colorScheme.tertiaryFixed,
       clipBehavior: Clip.antiAlias,
       elevation: 3,
       child: InkWell(
@@ -59,7 +60,10 @@ class ScreenCard extends StatelessWidget {
                         Container(
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              colors: [_color, Colors.blueGrey],
+                              colors: [
+                                _color,
+                                Theme.of(context).colorScheme.tertiaryFixedDim,
+                              ],
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                             ),
@@ -93,11 +97,11 @@ class ScreenCard extends StatelessWidget {
                   titleTextStyle: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Theme.of(context).colorScheme.secondary,
+                    color: Theme.of(context).colorScheme.onTertiaryFixed,
                   ),
                   subtitleTextStyle: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: Theme.of(context).colorScheme.onTertiaryFixedVariant,
                   ),
                 ),
               ),

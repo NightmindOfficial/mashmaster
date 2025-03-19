@@ -28,7 +28,7 @@ class ContactScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Card(
-                  color: Colors.blue[50],
+                  color: Theme.of(context).colorScheme.tertiaryFixed,
                   elevation: 3,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
@@ -64,12 +64,15 @@ class ContactScreen extends StatelessWidget {
                                     color:
                                         Theme.of(
                                           context,
-                                        ).colorScheme.onPrimaryContainer,
+                                        ).colorScheme.onTertiaryFixedVariant,
                                     fontWeight: FontWeight.bold,
                                   ),
                                   subtitleTextStyle: TextStyle(
                                     fontSize: 18,
-                                    color: Colors.blueGrey,
+                                    color:
+                                        Theme.of(
+                                          context,
+                                        ).colorScheme.onTertiaryFixedVariant,
                                     height: 1.5,
                                   ),
                                 ),
@@ -87,9 +90,17 @@ class ContactScreen extends StatelessWidget {
                                       },
                                       icon: Icon(
                                         SocialMediaIcon.github_circled,
+                                        color:
+                                            Theme.of(
+                                              context,
+                                            ).colorScheme.onTertiary,
                                       ),
                                       style: IconButton.styleFrom(
-                                        backgroundColor: Colors.blue[50],
+                                        elevation: 3,
+                                        backgroundColor:
+                                            Theme.of(
+                                              context,
+                                            ).colorScheme.tertiary,
                                       ),
                                     ),
                                     SizedBox(width: 8),
@@ -102,9 +113,19 @@ class ContactScreen extends StatelessWidget {
                                           'mailto:${dotenv.env['EMAIL']}?subject=Mashmaster User Feedback',
                                         );
                                       },
-                                      icon: Icon(Icons.email_rounded),
+                                      icon: Icon(
+                                        Icons.email_rounded,
+                                        color:
+                                            Theme.of(
+                                              context,
+                                            ).colorScheme.onTertiary,
+                                      ),
                                       style: IconButton.styleFrom(
-                                        backgroundColor: Colors.blue[50],
+                                        elevation: 3,
+                                        backgroundColor:
+                                            Theme.of(
+                                              context,
+                                            ).colorScheme.tertiary,
                                       ),
                                     ),
                                   ],

@@ -134,6 +134,9 @@ class TranslationsSettingsScreenEn {
   final Translations _root; // ignore: unused_field
 
   // Translations
+  String get theme_switch => 'Dark Mode';
+  String get system_theme_switch => 'Use System Theme';
+  late final TranslationsSettingsScreenDeleteAppDataEn delete_app_data = TranslationsSettingsScreenDeleteAppDataEn.internal(_root);
   String get placeholder_label => 'There are currently very few settings for this app, since it is still in Beta.\n\nPlease come back later!';
 }
 
@@ -214,6 +217,34 @@ class TranslationsContactScreenBugReportEn {
   String get button_label => 'Submit Bug Report';
 }
 
+// Path: settings_screen.delete_app_data
+class TranslationsSettingsScreenDeleteAppDataEn {
+  TranslationsSettingsScreenDeleteAppDataEn.internal(this._root);
+
+  final Translations _root; // ignore: unused_field
+
+  // Translations
+  String get title => 'Delete App Data';
+  String get content => 'This deletes your preference data (e.g. preferred theme mode, and language). No other data will be affected.';
+  String get button_label => 'Delete Now';
+  late final TranslationsSettingsScreenDeleteAppDataAlertDialogEn alert_dialog = TranslationsSettingsScreenDeleteAppDataAlertDialogEn.internal(_root);
+  String get snackbar => 'Data deleted. Restart the app for the changes to take effect.';
+}
+
+// Path: settings_screen.delete_app_data.alert_dialog
+class TranslationsSettingsScreenDeleteAppDataAlertDialogEn {
+  TranslationsSettingsScreenDeleteAppDataAlertDialogEn.internal(this._root);
+
+  final Translations _root; // ignore: unused_field
+
+  // Translations
+  String get title => 'Delete Local App Data?';
+  String get content =>
+      'This action cannot be undone. Your preferred language, theme mode and other settings will be deleted. You need to restart the app for the changes to take effect.';
+  String get abort_label => 'Keep Data';
+  String get execute_label => 'Delete';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on Translations {
@@ -283,6 +314,26 @@ extension on Translations {
         return 'Submit Bug Report';
       case 'contact_screen.version_label':
         return 'Made with ♡ in Vallendar.';
+      case 'settings_screen.theme_switch':
+        return 'Dark Mode';
+      case 'settings_screen.system_theme_switch':
+        return 'Use System Theme';
+      case 'settings_screen.delete_app_data.title':
+        return 'Delete App Data';
+      case 'settings_screen.delete_app_data.content':
+        return 'This deletes your preference data (e.g. preferred theme mode, and language). No other data will be affected.';
+      case 'settings_screen.delete_app_data.button_label':
+        return 'Delete Now';
+      case 'settings_screen.delete_app_data.alert_dialog.title':
+        return 'Delete Local App Data?';
+      case 'settings_screen.delete_app_data.alert_dialog.content':
+        return 'This action cannot be undone. Your preferred language, theme mode and other settings will be deleted. You need to restart the app for the changes to take effect.';
+      case 'settings_screen.delete_app_data.alert_dialog.abort_label':
+        return 'Keep Data';
+      case 'settings_screen.delete_app_data.alert_dialog.execute_label':
+        return 'Delete';
+      case 'settings_screen.delete_app_data.snackbar':
+        return 'Data deleted. Restart the app for the changes to take effect.';
       case 'settings_screen.placeholder_label':
         return 'There are currently very few settings for this app, since it is still in Beta.\n\nPlease come back later!';
       default:

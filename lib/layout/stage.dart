@@ -27,7 +27,7 @@ class Stage extends StatelessWidget {
 
       ///* BODY
       body: SafeArea(child: navigationShell),
-      backgroundColor: Theme.of(context).colorScheme.tertiaryFixed,
+      backgroundColor: Theme.of(context).colorScheme.surface,
 
       ///* BNB
       bottomNavigationBar: NavigationBar(
